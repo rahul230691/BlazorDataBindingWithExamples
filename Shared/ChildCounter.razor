@@ -1,0 +1,20 @@
+﻿<h3>Child Component</h3>
+
+<button @onclick="IncrementCounterFromChild" >Child Incrementor</button>
+
+<p>Counter Value inside Child component: @CounterValue</p>
+
+@code {
+    [Parameter]
+    public int CounterValue { get; set; }
+
+    [Parameter]
+    public EventCallback<int> CounterValueChanged { get; set; }
+
+    protected async Task IncrementCounterFromChild()
+    {
+        CounterValue++;
+        await CounterValueChanged.InvokeAsync(CounterValue);
+    }
+
+}

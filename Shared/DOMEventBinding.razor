@@ -1,0 +1,24 @@
+﻿@page "/domeventbinding"
+
+<h3>Blazor components event handling with example</h3>
+
+<p>Counter: @counterValue</p>
+<!-- button onclick event -->
+<button @onclick="IncrementClick">Click Me</button>
+<br/><br />
+<!-- checkbox onchange event -->
+Subscribe to Alerts: <input type="checkbox" @onchange="@(() => checkBoxValue = !checkBoxValue)" />
+<br />
+<p>@checkBoxValue</p>
+
+@code {
+
+    private int counterValue = 0;
+
+    protected void IncrementClick(MouseEventArgs e)
+    {
+        counterValue++;
+    }
+
+    private bool checkBoxValue = false;
+}

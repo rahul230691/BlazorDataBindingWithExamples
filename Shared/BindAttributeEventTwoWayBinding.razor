@@ -1,0 +1,22 @@
+﻿@page "/bindattributedatabinding"
+
+<h3>Change Paragraph Style</h3>
+
+<input type="text" @bind="colorName" />
+<br/>
+<p @bind-style="ParagraphStyle" @bind-style:event="onchange">Change my color!</p>
+
+@code {
+    private string colorName = "red";
+    public string ParagraphStyle
+    {
+        get
+        {
+            return $"color:{colorName}";
+        }
+        set
+        {
+            colorName = value;
+        }
+    }
+}

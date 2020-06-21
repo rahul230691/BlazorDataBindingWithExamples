@@ -1,0 +1,10 @@
+﻿@page "/datetimeformatting"
+
+<h3>DateTimeFormatting</h3>
+<input type="text" @bind="DateFrom" @bind:format="yyyy-MMM-dd" />
+
+@code {
+
+    private DateTime DateFrom { get; set; } = new DateTime(2020, 6, 18);
+
+}

@@ -1,0 +1,26 @@
+﻿@page "/eventcallbackexample"
+
+<h3>Parent Component</h3>
+
+<button @onclick="IncrementCountFromParent">Parent Incrementor</button>
+
+<p>Counter Value inside Parent component: @counter</p>
+
+<!-- Nested Child Component -->
+<ChildCounter CounterValue="@counter" CounterValueChanged="CounterIncreased"></ChildCounter>
+
+@code {
+
+    private int counter;
+
+    protected void IncrementCountFromParent()
+    {
+        counter++;
+    }
+
+    public Task CounterIncreased(int incrementedCounterValue)
+    {
+        counter = incrementedCounterValue;
+        return Task.CompletedTask;
+    }
+}

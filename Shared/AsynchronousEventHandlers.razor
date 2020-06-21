@@ -1,0 +1,17 @@
+﻿@page "/aynchronouseventhandler"
+
+<h3>Asynchronous Event Handlers</h3>
+
+<button @onclick="GetRecords">Get Records</button>
+
+@code {
+    private List<string> names { get; set; } = new List<string>();
+
+    protected async Task GetRecords()
+    {
+        //any asynchronous call like get data from API
+
+        //names = await employeeService.GetNames();
+    }
+
+}

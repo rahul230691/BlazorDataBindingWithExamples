@@ -1,0 +1,18 @@
+﻿@page "/eventargsexample"
+
+<h3>Event Handler with EventArgs Example</h3>
+
+Enter any key: <input type="text" @onkeypress="KeyPressed" />
+<br/>
+@foreach(var s in PressedKeys)
+{
+    @s <br/>
+}
+
+@code {
+    private List<string> PressedKeys { get; set; } = new List<string>();
+    protected void KeyPressed(KeyboardEventArgs e)
+    {
+        PressedKeys.Add($"Key: {e.Key}, Code: {e.Code}");
+    }
+}

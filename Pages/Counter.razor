@@ -1,0 +1,27 @@
+﻿@page "/counter"
+<!-- Parent Component -->
+<h3>Two-way binding with event demo</h3>
+<h4>Parent Component</h4>
+Change value using two-way binding with event:
+<input type="text" @bind="currentCount" @bind:event="oninput" />
+<p>Current count: @currentCount</p>
+@*<input type="checkbox" @bind="isChecked" />
+    <p>Checkbox checked? : @isChecked</p>*@
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<br />
+<br />
+
+<!-- Child Component -->
+<CounterValueDisplay CounterValue="@currentCount"></CounterValueDisplay>
+@*<CounterValueDisplay CounterValue="@currentCount" CheckBoxValue="@isChecked"></CounterValueDisplay>*@
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    //private bool isChecked;
+}
